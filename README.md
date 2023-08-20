@@ -33,66 +33,46 @@ Follow these steps to set up Firebase authentication and Realtime Database in yo
 ### Setup Realtime Database
 
 4. **Initialize Firebase in your Flutter App:**
-   - Add the necessary dependencies to your `pubspec.yaml`:
-     ```yaml
-     dependencies:
-       flutter:
-         sdk: flutter
-       firebase_core: ^latest_version
-       firebase_database: ^latest_version
-     ```
-   - Import and initialize Firebase in your `main.dart`:
-     ```dart
-     import 'package:firebase_core/firebase_core.dart';
-
-     Future<void> main() async {
-       WidgetsFlutterBinding.ensureInitialized();
-       await Firebase.initializeApp();
-       runApp(MyApp());
-     }
-     ```
 4. **Add `google-services.json`:** For Firebase setup, each developer needs to add their own `google-services.json` file obtained from their Firebase project. Place this file in the `android/app` directory.
+5. **Set Up Firebase Authentication:**
+   - Go to the Firebase Console and create a project.
+   - Enable the Email/Password sign-in method.
+   - Add your Android app to the project and download the `google-services.json` file.
+   - Add your iOS app if needed and download the `GoogleService-Info.plist` file.
+6. **Set Up Firebase Realtime Database:**
+   - In the Firebase Console, create a Realtime Database.
+   - Set up security rules as per your requirements.
+   - Update the Firebase configuration in your Flutter app code.
 
-5. **Use Realtime Database:**
-   - Import the necessary package:
-     ```dart
-     import 'package:firebase_database/firebase_database.dart';
-     ```
-   - Read and write data to the database:
-     ```dart
-     final DatabaseReference _database = FirebaseDatabase.instance.reference();
-     _database.child('users').child(userId).set({
-       'username': 'john_doe',
-       'email': 'john@example.com',
-     });
-     ```
+7. Run the app: `flutter run`
 
-### Setup Firebase Authentication
+## Dependencies
 
-6. **Use Firebase Authentication:**
-   - Import the necessary package:
-     ```dart
-     import 'package:firebase_auth/firebase_auth.dart';
-     ```
-   - Implement authentication methods:
-     ```dart
-     final FirebaseAuth _auth = FirebaseAuth.instance;
+This app utilizes the following dependencies:
 
-     // Sign Up
-     UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
-       email: 'user@example.com',
-       password: 'password123',
-     );
+- **google_fonts: ^5.1.0**: Provides easy access to a wide range of Google Fonts for consistent and appealing typography in the app.
 
-     // Sign In
-     UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-       email: 'user@example.com',
-       password: 'password123',
-     );
-     ```
+- **get: ^4.6.5**: Offers a clean and reactive state management solution for your Flutter app, simplifying UI updates and interactions.
 
-7. **Session Management:**
-   - Use Shared Preferences to manage user sessions between app launches.
+- **email_validator: ^2.1.17**: Allows you to validate email addresses, ensuring accurate input during user registration and login.
+
+- **font_awesome_flutter: ^10.5.0**: Grants access to a comprehensive library of FontAwesome icons to enhance the visual elements of your app.
+
+- **firebase_core: ^2.15.1**: Essential for initializing and connecting your Flutter app with Firebase services.
+
+- **firebase_auth: ^4.7.3**: Enables robust user authentication using various methods, enhancing app security.
+
+- **firebase_database: ^10.2.5**: Provides integration with the Firebase Realtime Database for real-time synchronization of tasks.
+
+- **shared_preferences: ^2.2.0**: Allows you to store simple key-value pairs on the device, facilitating data persistence.
+
+- **google_sign_in: ^6.1.4**: Streamlines the integration of Google Sign-In functionality for user authentication.
+
+- **intl: ^0.18.1**: Provides internationalization and localization support, making your app accessible to users from different regions.
+
+- **connectivity: ^3.0.6**: Monitors network connectivity, allowing you to adapt your app's behavior based on the user's internet status.
 
 Feel free to explore the code, contribute, and make this authentication and Realtime Database integration your own!
 For more detailed information, check the [Firebase documentation](https://firebase.flutter.dev/) and [Flutter documentation](https://flutter.dev/docs).
+
+### Designed and developed with ❤️ by [Hamad Anwar](https://www.linkedin.com/in/hamad-anwar/).
