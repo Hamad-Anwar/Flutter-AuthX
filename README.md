@@ -10,7 +10,7 @@ Simplify authentication and session management in your Flutter app with Firebase
 
 ## Screenshot 
 
-<img src="demp.png">
+<img src="demo.png">
 
 ## Getting Started
 
@@ -51,6 +51,7 @@ Follow these steps to set up Firebase authentication and Realtime Database in yo
        runApp(MyApp());
      }
      ```
+4. **Add `google-services.json`:** For Firebase setup, each developer needs to add their own `google-services.json` file obtained from their Firebase project. Place this file in the `android/app` directory.
 
 5. **Use Realtime Database:**
    - Import the necessary package:
